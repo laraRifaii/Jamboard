@@ -1,93 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="jamb.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="jamb.css" />
 
     <title>Untitled Jam</title>
-</head>
+  </head>
   <body>
     <header class="header">
-      <img class="logo" src="assets/jamboard.png"/>
-        <div class="name">
-          Untitled Jam
-        </div>
+      <img class="logo" src="assets/jamboard.png" />
+      <div class="name">Untitled Jam</div>
       <!-- slider part-->
       <div class="slider-page">
-           <img  class="arrow-left" src="assets/arrow-left.png"/>
-             <img class="rect" src="assets/rect.png"/>
-           <img class="arrow-right " src="assets/arrow-right.png"/>
+        <img class="arrow-left" src="assets/arrow-left.png" />
+        <img class="rect" src="assets/rect.png" />
+        <img class="arrow-right" src="assets/arrow-right.png" />
       </div>
-      
+
       <!--Google meet section -->
-       <button class="google-meet">
-          <img src="assets/meet.svg" class="meet-logo"/><span class="arrow"></span>
-       </button>
-     
-       <!-- more actions section-->
-       <div class="points-more-actions">
-          <div class="points" ><strong>&#8285;</strong></div>
-       </div>
+      <button class="google-meet">
+        <img src="assets/meet.svg" class="meet-logo" /><span
+          class="arrow"
+        ></span>
+      </button>
 
-       <!-- Share  button section -->
-        <button class="share"><img src="assets/Lock.svg" class="Lock"/><span class="share-text">Share</span></button>
-       <!--profile registered-->
-        <button class="profile"></button>
-  
-       <!--end of header-->   
-        </header>
+      <!-- more actions section-->
+      <div class="points-more-actions">
+        <div class="points"><strong>&#8285;</strong></div>
+      </div>
 
-      <section class="after-header">
-          <img class="undo content" src="assets/back.png"/> 
-          <img class="next content" src="assets/next.png"/>
-          <span class="divider content"></span>
-          <div class="zoom">
-           <img class="zoom-in-logo " src="assets/zoom-in.png" />
-           <img class="zoom-in-arrow" src="assets/arrowdown.png" />
+      <!-- Share  button section -->
+      <button class="share">
+        <img src="assets/Lock.svg" class="Lock" /><span class="share-text"
+          >Share</span
+        >
+      </button>
+      <!--profile registered-->
+      <button class="profile"></button>
+
+      <!--end of header-->
+    </header>
+
+    <section class="after-header">
+      <img class="undo content" src="assets/back.png" />
+      <img class="next content" src="assets/next.png" />
+      <span class="divider content"></span>
+      <div class="zoom">
+        <img class="zoom-in-logo" src="assets/zoom-in.png" />
+        <img class="zoom-in-arrow" src="assets/arrowdown.png" />
+      </div>
+      <span class="divider content"></span>
+      <div class="content"><div class="background">Set background</div></div>
+      <span class="divider content"></span>
+      <div class="clear-frame">Clear frame</div>
+    </section>
+
+    <!--Jamboard Section-->
+
+    <div class="container">
+      <div class="canvas-utilities-container">
+        <ul class="canvas-list-utilities">
+          <li id="pen">
+            <img class="pen" src="assets/pen.png" />
+          </li>
+          <div class="color-palette hidden ">
+            <div class="pen-styles">
+              <img
+                src="assets/pen.png"
+                class="pen-pen style-btn"
+                onclick="setPen('default')"
+               
+              />
+              <img
+                src="assets/marker.png"
+                class="pen-marker style-btn"
+                onclick="setPen('marker')"
+                alt="marker"
+              />
+              <img
+                src="assets/highlighter.png"
+                class="pen-highlighter style-btn"
+                onclick="setPen('highlighter')"
+                alt="highlighter"
+              />
+              <img
+                src="assets/paint-brush.png"
+                class="pen-brush style-btn"
+                onclick="setPen('brush')"
+                alt="brush"
+              />
+            </div>
+            <div class="pen-colors">
+              <div
+                class="color-btn black"
+                data-color="rgb(60,64,67)"
+                onclick="applyBoxShadow(this)"
+              ></div>
+              <div
+                class="color-btn blue"
+                data-color="rgb(25, 172, 192)"
+                onclick="applyBoxShadow(this)"
+              ></div>
+              <div
+                class="color-btn green"
+                data-color="rgb(105, 158, 62)"
+                onclick="applyBoxShadow(this)"
+              ></div>
+              <div
+                class="color-btn white"
+                data-color="rgb(255,255,255)"
+                onclick="applyBoxShadow(this)"
+              ></div>
+              <div
+                class="color-btn yellow"
+                data-color="rgb(243,179,42)"
+                onclick="applyBoxShadow(this)"
+              ></div>
+              <div
+                class="color-btn red"
+                data-color="rgb(217,69,60)"
+                onclick="applyBoxShadow(this)"
+              ></div>
+            </div>
           </div>
-          <span class="divider content"></span>
-               <div class="content"><div class="background">
-                 Set background
-               </div>
-              </div>
-          <span class="divider content "></span>
-          <div class="clear-frame">Clear frame</div>
-      </section>
-       
-        <!--Jamboard Section-->
-        
-        <div class="container">
-        
-            <div class="canvas-utilities-container">
-              <ul class="canvas-list-utilities">
-                <li id="pen">
-                  <img  class="pen" src="assets/pen.png"/></li>
-                     <div class="color-palette hidden">
-                        <div class="color-btn black" data-color="black" onclick="applyBoxShadow(this)"></div>
-                        <div class="color-btn blue"  data-color="blue"  onclick="applyBoxShadow(this)" ></div>
-                        <div class="color-btn green" data-color="green" onclick="applyBoxShadow(this)"></div>
-                        <div class="color-btn white" data-color="white" onclick="applyBoxShadow(this)"></div>
-                        <div class="color-btn red"   data-color="red"   onclick="applyBoxShadow(this)"></div>
-                      
-                     </div>
-                    
-                
-                <li id="eraser"><img class="eraser" src="assets/eraser.png"/></li>
-                <li id="select"><img class="select" src="/assets/Vector.png" /></li>
-                <li id="note"><img class="note" src="/assets/note.png" /></li>
-                <li id="image"><img class="image" src="/assets/image.png" /></li>
-                <li id="circle"><img class="circle" src="/assets/circle.png" /> &triangleright;</li>
-                <li id="text"><img class="text" src="/assets/text.png" /></li>
-                <li id="laser"><img class="laser" src="assets/laser.png"/></li>
-              </ul>
-            </div>
-            <div class="canvas">
-               <canvas id="canvas">
-               </canvas>
-            </div>
-        </div>
-        
-    </body>
-      <script defer src="jamb.js"></script>
-   
+
+          <li id="eraser"><img class="eraser" src="assets/eraser.png" /></li>
+          <li id="select"><img class="select" src="/assets/Vector.png" /></li>
+          <li id="note"><img class="note" src="/assets/note.png" /></li>
+          <li id="image"><img class="image" src="/assets/image.png" /></li>
+          <li id="circle">
+            <img class="circle" src="/assets/circle.png" /> &triangleright;
+          </li>
+          <li id="text"><img class="text" src="/assets/text.png" /></li>
+          <li id="laser"><img class="laser" src="assets/laser.png" /></li>
+        </ul>
+      </div>
+      <div class="canvas">
+        <canvas id="canvas"> </canvas>
+      </div>
+    </div>
+  </body>
+  <script defer src="jamb.js"></script>
+</html>
