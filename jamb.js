@@ -6,6 +6,7 @@ const pen = document.querySelector(".pen");
 const canvasListUtility = document.getElementsByClassName(
   "canvas-list-utilities"
 );
+const allBtns = document.querySelectorAll("li");
 const eraser = document.querySelector(".eraser");
 const select = document.querySelector(".select");
 const note = document.querySelector(".note");
@@ -15,8 +16,13 @@ const text = document.querySelector(".text");
 const laser = document.querySelector(".laser");
 const Colorbtn = document.querySelectorAll(".color-btn");
 const penStyles = document.querySelectorAll(".pen-styles");
-const styleBtn=document.querySelectorAll(".style-btn")
+const styleBtn = document.querySelectorAll(".style-btn");
 const colorPalette = document.querySelector(".color-palette");
+const jamTitle = document.querySelector(".name");
+const modal = document.querySelector(".modal");
+const btnCancel = document.getElementById("cancel");
+const submit = document.querySelector(".btn--save");
+
 let drawing = false;
 let currentColor = "black";
 let penstyle = "default";
@@ -40,12 +46,18 @@ function draw(event) {
   // ctx.lineWidth = 5;
   ctx.lineCap = "round";
   ctx.strokeStyle = currentColor;
-  
-  ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+
+  ctx.lineTo(
+    event.clientX - canvas.offsetLeft,
+    event.clientY - canvas.offsetTop
+  );
 
   ctx.stroke();
   ctx.beginPath();
-  ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+  ctx.moveTo(
+    event.clientX - canvas.offsetLeft,
+    event.clientY - canvas.offsetTop
+  );
 }
 // Event listeners for canvas
 canvas.addEventListener("mousedown", startDrawing);
@@ -55,22 +67,16 @@ canvas.addEventListener("mousemove", draw);
 function startDrawing(event) {
   drawing = true;
   ctx.beginPath();
-  ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop );
+  ctx.moveTo(
+    event.clientX - canvas.offsetLeft,
+    event.clientY - canvas.offsetTop
+  );
   draw(event); // Start drawing immediately at the cursor position
 }
 
 function stopDrawing() {
   drawing = false;
   ctx.beginPath(); // Reset the path to avoid drawing a line from the last point
-}
-
-function applyBoxShadow(clickedButton) {
-  // Remove box shadow from all buttons
-   Colorbtn.forEach((button) => {
-      button.style.boxShadow = "";
-  });
-  // Apply box shadow to the clicked button
-  clickedButton.style.boxShadow = "1px 5px 8px rgb(151, 152, 153)";
 }
 // Open Palette
 function openPalette() {
@@ -94,12 +100,12 @@ function adjustCanvasSize() {
 
   if (width < 600) {
     container.style.width = "85%";
-    container.style.height = "42%";
-    container.style.marginTop = "23%";
+    container.style.height = "40%";
+    container.style.marginTop = "18%";
     container.style.marginLeft = "-30px";
   } else if (width < 768) {
     container.style.width = "85%";
-    container.style.height = "55%";
+    container.style.height = "60%";
     container.style.marginTop = "10%";
     container.style.marginLeft = "-30px";
     container.style.marginBottom = "30%";
@@ -113,10 +119,10 @@ function adjustCanvasSize() {
   } else {
     container.style.width = "60%";
     container.style.height = "74%";
+    container.style.marginTop = "1%";
     container.style.marginLeft = "15%";
     container.style.marginRight = "17%";
     container.style.marginBottom = "5%";
-    container.style.marginTop = "1%";
   }
 }
 
@@ -126,32 +132,77 @@ adjustCanvasSize();
 penStyles.forEach((pen) =>
   pen.addEventListener("click", function drawOnCanvas(x, y) {
     switch (penstyle) {
-        case 'marker':
-            ctx.globalAlpha = 1.0;
-            ctx.lineWidth = 2;
-            ctx.strokeStyle='butt';
-            break;
-        case 'highlighter':
-            ctx.globalAlpha = 0.4;
-            ctx.lineWidth = 6;
-            break;
-        case 'brush':
-            ctx.globalAlpha = 0.06;
-            ctx.lineWidth = 10;
-            break;
-        default:
-            ctx.globalAlpha = 1.0;
-            ctx.lineWidth = 1;
-            break;
+      case "marker":
+        ctx.globalAlpha = 1.0;
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "butt";
+        break;
+      case "highlighter":
+        ctx.globalAlpha = 0.4;
+        ctx.lineWidth = 6;
+        break;
+      case "brush":
+        ctx.globalAlpha = 0.06;
+        ctx.lineWidth = 10;
+        break;
+      default:
+        ctx.globalAlpha = 1.0;
+        ctx.lineWidth = 1;
+        break;
     }
 
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x + 1, y + 1); // Small line to simulate a dot
     ctx.stroke();
-}
-));
-
+  })
+);
 function setPen(style) {
   penstyle = style;
 }
+function applyBackground(clickedButton) {
+  allBtns.forEach((btn) => {
+    btn.style.backgroundColor = "";
+  });
+  clickedButton.style.backgroundColor = "rgb(60,64,67)";
+}
+
+function applyBoxShadow(clickedButton) {
+  // Remove box shadow from all buttons
+  Colorbtn.forEach((button) => {
+    button.style.boxShadow = "";
+  });
+  // Apply box shadow to the clicked button
+  clickedButton.style.boxShadow = "1px 5px 8px rgb(151, 152, 153)";
+}
+
+const openForm = function (e) {
+  e.preventDefault();
+  modal.classList.remove("hidden");
+};
+
+const closeForm = function () {
+  modal.classList.add("hidden");
+};
+const cancelInput = function () {
+  jamTitle.textContent = "Untitled Jam";
+  closeForm();
+};
+function render_title(e) {
+  e.preventDefault();
+  const title = document.getElementById("text").value;
+  if (title == "") {
+    jamTitle.textContent = jamTitle.textContent;
+    closeForm();
+  } else {
+    let html = `${title}`;
+    jamTitle.textContent = html;
+    closeForm();
+  }
+}
+jamTitle.addEventListener("click", openForm);
+
+submit.addEventListener("click", render_title);
+
+cancel.addEventListener("click", cancelInput);
+
