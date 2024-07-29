@@ -13,23 +13,35 @@
 
       <div class="name">Untitled Jam</div>
       <div class="modal hidden">
-        <div class="modal__header">Rename Jam <button class="btn--close-modal" onclick="closeForm()">&times;</button></div>
+        <div class="modal__header">
+          Rename Jam
+          <button class="btn--close-modal" onclick="closeForm()">
+            &times;
+          </button>
+        </div>
         <form class="modal__form" method="post" action="">
           <label for="NewName">Enter a new name:</label>
-          <input type="text" id="text-jam" placeholder="Untitled Jam" autocomplete="off">
+          <input
+            type="text"
+            id="text-jam"
+            placeholder="Untitled Jam"
+            autocomplete="off"
+          />
           <div class="btn-part">
-           <button class="btn--save" type="submit">OK</button>
-           <button class="btn--cancel" id="cancel" type="button">Cancel</button>
+            <button class="btn--save" type="submit">OK</button>
+            <button class="btn--cancel" id="cancel" type="button">
+              Cancel
+            </button>
           </div>
         </form>
       </div>
 
-
-<!-- slider part-->
+      <!-- slider part-->
       <div class="slider-page">
-        <img class="arrow-left" src="assets/arrow-left.png" />
-        <img class="rect" src="assets/rect.png" />
-        <img class="arrow-right" src="assets/arrow-right.png" />
+        <img class="prev btn" src="assets/arrow-left.png" />
+        <img class="rect" src="assets/rect.png" /><span class="numbers">1 / 1</span>
+        <img class="next btn" src="assets/arrow-right.png" />
+        
       </div>
 
       <!--Google meet section -->
@@ -58,7 +70,7 @@
 
     <section class="after-header">
       <img class="undo content" src="assets/back.png" />
-      <img class="next content" src="assets/next.png" />
+      <img class="redo content" src="assets/next.png" />
       <span class="divider content"></span>
       <div class="zoom">
         <img class="zoom-in-logo" src="assets/zoom-in.png" />
@@ -74,17 +86,16 @@
 
     <div class="container">
       <div class="canvas-utilities-container">
-        <ul class="canvas-list-utilities" >
+        <ul class="canvas-list-utilities">
           <li id="pen" onclick="applyBackground(this)">
             <img class="pen" src="assets/pen.png" />
           </li>
-          <div class="color-palette hidden ">
+          <div class="color-palette hidden">
             <div class="pen-styles">
               <img
                 src="assets/pen.png"
                 class="pen-pen style-btn"
                 onclick="setPen('default')"
-               
               />
               <img
                 src="assets/marker.png"
@@ -140,19 +151,32 @@
             </div>
           </div>
 
-          <li id="eraser" onclick="applyBackground(this)"><img class="eraser" src="assets/eraser.png" /></li>
-          <li id="select" onclick="applyBackground(this)"><img class="select" src="/assets/Vector.png" /></li>
-          <li id="note" onclick="applyBackground(this)"><img class="note" src="/assets/note.png" /></li>
-          <li id="image" onclick="applyBackground(this)"><img class="image" src="/assets/image.png" /></li>
+          <li id="eraser" onclick="applyBackground(this)">
+            <img class="eraser" src="assets/eraser.png" />
+          </li>
+          <li id="select" onclick="applyBackground(this)">
+            <img class="select" src="/assets/Vector.png" />
+          </li>
+          <li id="note" onclick="applyBackground(this)">
+            <img class="note" src="/assets/note.png" />
+          </li>
+          <li id="image" onclick="applyBackground(this)">
+            <img class="image" src="/assets/image.png" />
+          </li>
           <li id="circle" onclick="applyBackground(this)">
             <img class="circle" src="/assets/circle.png" /> &triangleright;
           </li>
-          <li id="text" onclick="applyBackground(this)"><img class="text" src="/assets/text.png" /></li>
-          <li id="laser" onclick="applyBackground(this)"><img class="laser" src="assets/laser.png" /></li>
+          <li id="text" onclick="applyBackground(this)">
+            <img class="text" src="/assets/text.png" />
+          </li>
+          <li id="laser" onclick="applyBackground(this)">
+            <img class="laser" src="assets/laser.png" />
+          </li>
         </ul>
       </div>
+
       <div class="canvas">
-        <canvas id="canvas"> </canvas>
+        <canvas id="canvas" width="800" height="500"> </canvas>
       </div>
     </div>
   </body>

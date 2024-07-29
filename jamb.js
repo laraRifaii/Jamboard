@@ -2,6 +2,9 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const boxes = Array.from(document.getElementsByClassName("btn"));
+const arrleft = document.querySelector(".arrow-left");
+const arrright = document.querySelector(".arrow-right");
+const number = document.querySelector(".numbers");
 const pen = document.querySelector(".pen");
 const canvasListUtility = document.getElementsByClassName(
   "canvas-list-utilities"
@@ -89,46 +92,6 @@ function closePalette() {
 }
 pen.addEventListener("click", closePalette);
 
-//Responsive design
-
-window.addEventListener("resize", adjustCanvasSize);
-
-function adjustCanvasSize() {
-  const container = document.querySelector(".canvas");
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-
-  if (width < 600) {
-    container.style.width = "85%";
-    container.style.height = "40%";
-    container.style.marginTop = "18%";
-    container.style.marginLeft = "-30px";
-  } else if (width < 768) {
-    container.style.width = "85%";
-    container.style.height = "60%";
-    container.style.marginTop = "10%";
-    container.style.marginLeft = "-30px";
-    container.style.marginBottom = "30%";
-  } else if (width < 992) {
-    container.style.width = "93%";
-    container.style.height = "74%";
-    container.style.marginTop = "2.5%";
-    container.style.marginLeft = "-35px";
-    container.style.marginBottom = "30%";
-    container.style.marginRight = "5%";
-  } else {
-    container.style.width = "60%";
-    container.style.height = "74%";
-    container.style.marginTop = "1%";
-    container.style.marginLeft = "15%";
-    container.style.marginRight = "17%";
-    container.style.marginBottom = "5%";
-  }
-}
-
-// Initial adjustment
-adjustCanvasSize();
-
 penStyles.forEach((pen) =>
   pen.addEventListener("click", function drawOnCanvas(x, y) {
     switch (penstyle) {
@@ -190,7 +153,7 @@ const cancelInput = function () {
 };
 function render_title(e) {
   e.preventDefault();
-  const title = document.getElementById("text").value;
+  const title = document.getElementById("text-jam").value;
   if (title == "") {
     jamTitle.textContent = jamTitle.textContent;
     closeForm();
@@ -206,3 +169,46 @@ submit.addEventListener("click", render_title);
 
 cancel.addEventListener("click", cancelInput);
 
+let n = 1;
+// let currentSlide = 0;
+
+// function showSlide(index) {
+//     const slides = document.querySelectorAll('.slide');
+//     const totalSlides = slides.length;
+    
+
+//     if (index >= totalSlides) {
+//         currentSlide = 0;
+//     } else if (index < 0) {
+//         currentSlide = totalSlides - 1;
+//     } else {
+//         currentSlide = index;
+//     }
+
+//     const offset = -currentSlide * 45;
+//     document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+// }
+
+// function changeSlide(direction) {
+//     showSlide(currentSlide + direction);
+    
+//     n++;
+//     number.textContent =  `${n}`+" / " + ` ${n}`;
+//     arrleft.style.opacity='1';
+// }
+
+// // Initialize the slider
+// showSlide(currentSlide);
+
+// const next = document.querySelector('.next');
+
+// function appendSlide(slide){
+//   next.addEventListener('click',function(e){
+//       e.preventDefault();
+//       next.style.opacity='1';
+//       n++;
+//       number.textContent =  `${n}`+" / " + ` ${n}`;
+      
+
+//   })
+// }
