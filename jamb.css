@@ -5,10 +5,12 @@
 }
 html {
   font-size: 62.5%;
+  width: 100%;
+  height: 100%;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 .header {
   display: flex;
 }
@@ -33,6 +35,7 @@ html {
   font-weight: 400;
   max-width: 980px;
   padding-top: 5px;
+  /* margin-right:-100px; */
 }
 .name:hover {
   text-decoration: underline;
@@ -61,7 +64,9 @@ html {
   height: 200px;
   background-color: #fff;
 }
-
+.show-background {
+  background-color: lightgray; /* Color to change the background when modal is open */
+}
 .modal__header {
   display: flex;
   font-size: 2rem;
@@ -133,6 +138,21 @@ html {
 .btn--cancel:hover {
   opacity: 0.8;
 }
+.canvas {
+  border-top: #d2d6d8 2px solid;
+  border-right: #d2d6d8 2px solid;
+  border-left: #d2d6d8 2px solid;
+  border-bottom: #e1e5e8 1px solid;
+  background-color: white;
+  transition: width 0.5s ease, height 0.5s ease, margin 0.5s ease;
+}
+#canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  transition: all 0.5s;
+  background-color: #fff;
+}
 
 @media (min-width: 500px) {
   .name {
@@ -160,12 +180,14 @@ html {
   height: 20px;
   padding-top: 10px;
   opacity: 0.4;
+  margin-right: 10px;
+  margin-left: 15px;
 }
 .next {
   width: 20px;
   height: 20px;
   padding-top: 10px;
-  margin-left:30px;
+  margin-left: 50px;
 }
 .rect {
   display: flex;
@@ -174,15 +196,18 @@ html {
   padding: 5px;
   margin-left: 20px;
   margin-right: 20px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
 }
-.numbers{
-  display: flex;;
-  margin-left:-60px;
-  margin-top:17px;
-  font-weight: 200;
-  font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial;
-
-  
+.contain {
+  width: 20px;
+  height: 10px;
+  margin-top: 16px;
+  margin-left: -61px;
+}
+.numbers {
+  display: inline;
+  font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial;
 }
 .google-meet {
   display: flex;
@@ -251,7 +276,7 @@ html {
 .share-text {
   letter-spacing: 0.25px;
   font-weight: 500;
-  font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial;
+  font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial;
   font-size: 14px;
   outline-color: rgb(255, 255, 255);
   outline-style: none;
@@ -303,7 +328,6 @@ html {
   height: 44px;
   padding-left: 25px;
   padding-right: 24px;
-  width: 100vw;
   gap: 15px;
   font-size: 14px;
   font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
@@ -384,9 +408,8 @@ html {
 /* Container */
 .container {
   display: flex;
-  height:100vh;
-  width: 100vw;
   background-color: #f1f3f4;
+  height: 82vh;
 }
 .canvas-utilities-container {
   display: flex;
@@ -397,7 +420,7 @@ html {
   max-width: 48px;
   max-height: 420px;
   margin: 25px 16px 5px 14px;
-  z-index: 1;
+  /* z-index: 1; */
 }
 ul {
   display: flex;
@@ -552,8 +575,6 @@ li:hover {
   background-color: rgb(243, 179, 42);
 }
 
-
-
 @media screen and (width<=600px) {
   .canvas {
     margin-top: 90px;
@@ -562,7 +583,6 @@ li:hover {
     height: 300px;
     overflow-y: hidden;
     overflow-x: visible;
- 
   }
 }
 @media screen and (width>600px) {
@@ -574,7 +594,6 @@ li:hover {
     height: 350px;
     overflow-y: hidden;
     overflow-x: visible;
-
   }
 }
 @media screen and (width>700px) {
@@ -640,12 +659,4 @@ li:hover {
     width: 800px;
     height: 450px;
   }
-}
-.canvas {
-  border-top: #d2d6d8 2px solid;
-  border-right: #d2d6d8 2px solid;
-  border-left: #d2d6d8 2px solid;
-  border-bottom: #e1e5e8 1px solid;
-  background-color: white;
-  transition: width 0.5s ease, height 0.5s ease, margin 0.5s ease;
 }
